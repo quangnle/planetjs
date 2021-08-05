@@ -31,6 +31,7 @@ var PlanetSystem = function(x, y){
 			this.center.draw();
 		
 		// draw orbits
+		//stroke('#fff');
 		if(this.orbits.length > 0){
 			for (let i = 0; i < this.orbits.length; i++){
 				ellipse(0, 0, this.orbits[i] * 2, this.orbits[i] * 2);

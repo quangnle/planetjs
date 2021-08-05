@@ -75,3 +75,22 @@ function mousePressed(){
 		}
 	}
 }
+
+function touchStarted(){
+	let mx = mouseX - system.x;
+	let my = mouseY - system.y;
+	if (system.center != null && (sqDistance(system.center, {"x":mx, "y":my}) < system.center.size * system.center.size)){
+		system.center.state = 1;
+	} else {
+		system.center.state = 0;
+		for(let i = 0; i < system.planets.length; i++){
+			let p = system.planets[i].p;
+			if (sqDistance(p, {"x":mx, "y":my}) < p.size * p.size){
+				//sytem.state = 0;
+				p.state = 1;
+			} else {
+				p.state = 0;
+			}
+		}
+	}
+}
