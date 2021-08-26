@@ -7,7 +7,7 @@ let tauPlanet, musicPlanet, defiPlanet, gamePlanet, nftPlanet, rngPlanet, platfo
 
 
 
-let system = new PlanetSystem(w >> 1, h >> 1);
+let system = new PlanetSystem(w >> 1, h >> 1, h>>1, 400, "#fff");
 let selectedObj = null;
 
 function preload(){
@@ -22,16 +22,16 @@ function setup(){
 	var canvas = createCanvas(w, h);
 	canvas.parent('sketch-holder');
 	
-	tauPlanet = new Planet(img, 0, 0, 70, '#000', '#fff');
-	musicPlanet = new Planet(img, 0, 0, 40, '#000', '#fff');
-	defiPlanet = new Planet(img, 0, 0, 40, '#000', '#fff');
-	gamePlanet = new Planet(img, 0, 0, 40, '#000', '#fff');
-	nftPlanet = new Planet(img, 0, 0, 40, '#000', '#fff');
+	tauPlanet = new Planet(img, 0, 0, 70, '#fff', '#000');
+	musicPlanet = new Planet(img, 0, 0, 40, '#fff', '#000');
+	defiPlanet = new Planet(img, 0, 0, 40, '#fff', '#000');
+	gamePlanet = new Planet(img, 0, 0, 40, '#fff', '#000');
+	nftPlanet = new Planet(img, 0, 0, 40, '#fff', '#000');
 
-	rngPlanet = new Planet(img, 0, 0, 50, '#000', '#fff');
-	platformPlanet = new Planet(img, 0, 0, 50, '#000', '#fff');
+	rngPlanet = new Planet(img, 0, 0, 50, '#fff', '#000');
+	platformPlanet = new Planet(img, 0, 0, 50, '#fff', '#000');
 
-	metaversePlanet = new Planet(img, 0, 0, 60, '#000', '#fff');
+	metaversePlanet = new Planet(img, 0, 0, 60, '#fff', '#000');
 	
 	
 	system.setCenter(tauPlanet);
@@ -53,7 +53,7 @@ function setup(){
 }
 
 function draw(){
-	background("#fff");
+	background("#000");
 	system.draw();
 }
 

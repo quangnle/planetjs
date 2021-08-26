@@ -1,10 +1,22 @@
-var PlanetSystem = function(x, y){
+var PlanetSystem = function(x, y, radius, starCount, starColor){
 	this.x = x;
 	this.y = y;
+	this.starColor = starColor;
+	this.starCount = starCount;
+	this.radius = radius;
+	this.stars = [];
 	this.planets = [];
 	this.orbits = [];
 	this.t = 0;
 	this.state = 1;
+	
+	for( let i=0; i<this.starCount; i++){
+		this.stars.push({
+			"x": Math.random() * this.radius * 2 - this.radius,
+			"y": Math.random() * this.radius * 2 - this.radius,
+			"r": Math.random() * 5
+		});
+	}
 	
 	this.setCenter = function(planet){
 		this.center = planet;
@@ -23,6 +35,14 @@ var PlanetSystem = function(x, y){
 	this.draw = function(){
 		push();
 		translate(this.x, this.y);
+		
+		// draw stars
+		fill(this.starColor);
+		for( let i=0; i<this.starCount; i++){
+			ellipse(this.stars[i].x, this.stars[i].y, this.stars[i].r);
+		}
+		
+		
 		noFill();
 		imageMode(CENTER);
 		
@@ -31,7 +51,7 @@ var PlanetSystem = function(x, y){
 			this.center.draw();
 		
 		// draw orbits
-		//stroke('#fff');
+		stroke(this.starColor);
 		if(this.orbits.length > 0){
 			for (let i = 0; i < this.orbits.length; i++){
 				ellipse(0, 0, this.orbits[i] * 2, this.orbits[i] * 2);
